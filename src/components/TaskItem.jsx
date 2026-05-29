@@ -9,7 +9,7 @@ export default function TaskItem({
         <input
           type="checkbox"
           checked={task.completed}
-          onChange={() => onToggleTask(task.id)}
+          onChange={() => onToggleTask(task._id)}
         />
 
         <span className={task.completed ? 'completed' : ''}>
@@ -19,7 +19,7 @@ export default function TaskItem({
 
       <button
         className="delete-btn"
-        onClick={() => onDeleteTask(task.id)}
+        onClick={() => onDeleteTask(task._id)}
       >
         Delete
       </button>

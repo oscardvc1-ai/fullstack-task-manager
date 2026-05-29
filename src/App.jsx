@@ -4,41 +4,51 @@ import TaskForm from './components/TaskForm';
 import TaskList from './components/TaskList';
 import TaskFilter from './components/TaskFilter';
 
+import {
+  getTasks,
+  createTask,
+  updateTask,
+  deleteTask
+} from './services/taskService';
+
 export default function App() {
-  const [tasks, setTasks] = useState(() => {
-    const savedTasks = localStorage.getItem('tasks');
-
-    return savedTasks ? JSON.parse(savedTasks) : [];
-  });
-
+  const [tasks, setTasks] = useState([]);
   const [filter, setFilter] = useState('all');
 
   useEffect(() => {
-    localStorage.setItem('tasks', JSON.stringify(tasks));
-  }, [tasks]);
+    loadTasks();
+  }, []);
 
-  const addTask = (title) => {
-    const newTask = {
-      id: crypto.randomUUID(),
-      title,
-      completed: false
-    };
+  const loadTasks = async () => {
+    const data = await getTasks();
+
+    setTasks(data);
+  };
+
+  const addTask = async (title) => {
+    const newTask = await createTask(title);
 
     setTasks([...tasks, newTask]);
   };
 
-  const toggleTask = (id) => {
+  const toggleTask = async (id) => {
+    const taskToUpdate = tasks.find((task) => task._id === id);
+
+    const updatedTask = await updateTask(id, {
+      completed: !taskToUpdate.completed
+    });
+
     setTasks(
       tasks.map((task) =>
-        task.id === id
-          ? { ...task, completed: !task.completed }
-          : task
+        task._id === id ? updatedTask : task
       )
     );
   };
 
-  const deleteTask = (id) => {
-    setTasks(tasks.filter((task) => task.id !== id));
+  const removeTask = async (id) => {
+    await deleteTask(id);
+
+    setTasks(tasks.filter((task) => task._id !== id));
   };
 
   const filteredTasks = tasks.filter((task) => {
@@ -51,9 +61,9 @@ export default function App() {
   return (
     <main className="app">
       <section className="task-card">
-        <h1>React Task Manager</h1>
+        <h1>Full Stack Task Manager</h1>
         <p className="subtitle">
-          Manage your daily tasks with a clean and simple React app.
+          Manage your tasks with React, Node.js, Express and MongoDB.
         </p>
 
         <TaskForm onAddTask={addTask} />
@@ -66,7 +76,7 @@ export default function App() {
         <TaskList
           tasks={filteredTasks}
           onToggleTask={toggleTask}
-          onDeleteTask={deleteTask}
+          onDeleteTask={removeTask}
         />
       </section>
     </main>

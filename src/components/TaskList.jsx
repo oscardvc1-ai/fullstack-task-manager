@@ -17,7 +17,7 @@ export default function TaskList({
     <div className="task-list">
       {tasks.map((task) => (
         <TaskItem
-          key={task.id}
+          key={task._id}
           task={task}
           onToggleTask={onToggleTask}
           onDeleteTask={onDeleteTask}
