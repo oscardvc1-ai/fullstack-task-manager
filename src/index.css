@@ -43,6 +43,12 @@ button {
   font-size: 2.5rem;
   margin-bottom: 10px;
 }
+.task-counter {
+  color: #4db8ff;
+  font-size: 1rem;
+  margin: 15px 0;
+  font-weight: bold;
+}
 
 .subtitle {
   color: #94a3b8;

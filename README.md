@@ -1,45 +1,54 @@
+![Task Manager](./screenshot.png)
 # Full Stack Task Manager
 
-Full Stack task management application built with React, Node.js, Express and MongoDB Atlas.
+A full stack task management application built with:
 
-## 🚀 Description
+* React
+* Vite
+* Node.js
+* Express
+* MongoDB Atlas
+* Render
+* Vercel
 
-This project connects a React frontend with a REST API backend and MongoDB Atlas database.
+## Features
 
-Users can create, complete, filter and delete tasks. Data is stored in MongoDB through an Express API.
+* Create tasks
+* Complete tasks
+* Delete tasks
+* Filter tasks
+* Persistent storage using MongoDB
 
-## 🛠️ Technologies
+## Live Demo
 
-### Frontend
-- React
-- JavaScript
-- Vite
-- CSS3
-- Fetch API
+Frontend:
+https://fullstack-task-manager-puce.vercel.app
 
-### Backend
-- Node.js
-- Express
-- MongoDB Atlas
-- Mongoose
+Backend:
+https://task-manager-api-a6fy.onrender.com
 
-## ✨ Features
+## Technologies
 
-- Create tasks
-- Read tasks from MongoDB
-- Mark tasks as completed
-- Delete tasks
-- Filter tasks by status
-- Responsive design
-- Full Stack architecture
+Frontend:
 
-## 🔗 Related Repositories
+* React
+* Vite
+* CSS3
 
-- Frontend: https://github.com/oscardvc1-ai/fullstack-task-manager
-- Backend API: https://github.com/oscardvc1-ai/task-manager-api
+Backend:
 
-## ▶️ Run Frontend
+* Node.js
+* Express
 
-```bash
-npm install
-npm run dev
+Database:
+
+* MongoDB Atlas
+
+Deployment:
+
+* Vercel
+* Render
+
+## Author
+
+Oscar DVC

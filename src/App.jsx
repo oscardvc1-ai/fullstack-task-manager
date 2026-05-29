@@ -57,6 +57,18 @@ export default function App() {
 
     return true;
   });
+  const clearCompleted = async () => {
+
+  const completedTasks = tasks.filter(
+    task => task.completed
+  );
+
+  for (const task of completedTasks) {
+    await deleteTask(task._id);
+  }
+
+  loadTasks();
+};
 
   return (
     <main className="app">
@@ -72,7 +84,9 @@ export default function App() {
           currentFilter={filter}
           onChangeFilter={setFilter}
         />
+        <button onClick={clearCompleted} >Clear Completed</button>
 
+        const pendingTasks = tasks.filter(task => !task.completed).length;
         <TaskList
           tasks={filteredTasks}
           onToggleTask={toggleTask}
