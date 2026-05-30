@@ -23,6 +23,7 @@ button {
 .app {
   min-height: 100vh;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   padding: 40px 20px;
@@ -170,4 +171,98 @@ button {
     align-items: flex-start;
     flex-direction: column;
   }
+}
+.task-counter {
+  color: #38bdf8;
+  font-size: 1rem;
+  font-weight: bold;
+  margin: 16px 0;
+}
+.clear-btn {
+  margin-bottom: 20px;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 8px;
+  background: #dc2626;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.clear-btn:hover {
+  opacity: 0.9;
+}
+
+.edit-form {
+  width: 100%;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.edit-form input {
+  flex: 1;
+  padding: 12px 14px;
+  border: 1px solid #334155;
+  border-radius: 10px;
+  background: #020617;
+  color: #e5e7eb;
+  outline: none;
+}
+
+.edit-form input:focus {
+  border-color: #38bdf8;
+}
+
+.edit-form button,
+.edit-btn {
+  border: none;
+  border-radius: 10px;
+  padding: 10px 14px;
+  background: #38bdf8;
+  color: #020617;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.task-actions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.empty-state {
+  text-align: center;
+  padding: 40px;
+  color: #94a3b8;
+  font-size: 1rem;
+  border: 1px dashed #334155;
+  border-radius: 12px;
+  margin-top: 20px;
+}
+.loading {
+  text-align: center;
+  padding: 30px;
+  color: #38bdf8;
+  font-weight: bold;
+}
+.footer {
+  margin-top: 40px;
+  padding: 24px;
+  text-align: center;
+  color: #94a3b8;
+  border-top: 1px solid #334155;
+}
+
+.footer p {
+  margin: 8px 0;
+}
+
+.footer a {
+  color: #38bdf8;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.footer a:hover {
+  text-decoration: underline;
 }

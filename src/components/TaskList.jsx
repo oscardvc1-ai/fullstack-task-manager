@@ -3,15 +3,17 @@ import TaskItem from './TaskItem';
 export default function TaskList({
   tasks,
   onToggleTask,
-  onDeleteTask
+  onDeleteTask,
+  onUpdateTask
 }) {
   if (tasks.length === 0) {
-    return (
-      <p className="empty-message">
-        No tasks found.
-      </p>
-    );
-  }
+  return (
+    <div className="empty-state">
+      No tasks found.
+    </div>
+  );
+}
+
 
   return (
     <div className="task-list">
@@ -21,6 +23,7 @@ export default function TaskList({
           task={task}
           onToggleTask={onToggleTask}
           onDeleteTask={onDeleteTask}
+          onUpdateTask={onUpdateTask}
         />
       ))}
     </div>
